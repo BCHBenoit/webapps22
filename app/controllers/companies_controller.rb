@@ -3,6 +3,7 @@ class CompaniesController < ApplicationController
   def index
     # find all Company rows
     # render companies/index view
+    @companies = Company.all 
   end
 
   def show
