@@ -1,4 +1,4 @@
-<h1>New Contact</h1>
+<h1>New Contact for <%=@companies_table_select.find_by({"id" => @company_id})["name"]%></h1>
 
 <form action="/contacts" method="post">
   <p>
@@ -15,7 +15,7 @@
   </p>
   <p>
     <label for="company_id">Company</label>
-    <input type="text" name="company_id" id="company_id">
+    <input type="text" name="company_id" id="company_id" value=<%=@company_id%>>
   </p>
   <button>Submit</button>
 </form>

@@ -3,11 +3,16 @@ class ContactsController < ApplicationController
   def show
     @contact = Contact.find_by({"id" => params["id"]})
     @company = Company.find_by({"id" => @contact["company_id"]})
+
     # render contacts/show view with details about Contact
   end
 
   def new
     # render contacts/new view with new Contact form
+    @company_id = params["company_id"]
+    @companies_table_select = Company.all
+   
+
   end
 
   def create
