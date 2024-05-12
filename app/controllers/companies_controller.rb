@@ -9,6 +9,16 @@ class CompaniesController < ApplicationController
   def show
     # find a Company
     # render companies/show view with details about Company
+    @companies = Company.all
+    @company_id = params["id"]
+    @companies_row = @companies.find_by({"id" => @company_id})
+    @companies_name = @companies_row["name"]
+    @companies_state = @companies_row["state"]
+    @companies_city = @companies_row["city"]
+
+    @contacts = Contact.all
+    @contacts_row_array = @contacts.where({"company_id" =>@company_id})
+
   end
 
   def new

@@ -1,14 +1,24 @@
 <!-- Company details page -->
 
-<h1>Dunder Mifflin</h1>
+<h1><%= @companies_name%></h1>
 
-<h2>Scranton, PA</h2>
+<h2><%=@companies_city%>, <%=@companies_state%></h2>
 
 <h3>Contacts</h3>
 
 <ul>
-  <li>Michael Scott</li>
-  <li>Dwight Schrute</li>
+  <% contact_row = 0
+      contact_first_name = 0
+      contact_last_name = 0
+  %>
+
+  <% for contact_row in @contacts_row_array %>
+    <% contact_first_name = contact_row["first_name"]
+        contact_last_name = contact_row["last_name"]
+    %>
+
+    <li><%= contact_first_name%> <%= contact_last_name%></li>
+ <% end%>
 </ul>
 
 <p>
